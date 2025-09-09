@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>ZezoChat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login-screen">
+    <h2>ZezoChat</h2>
+    <input type="text" id="username" placeholder="أدخل اسمك">
+    <button onclick="showRoomOptions()">استمرار</button>
+  </div>
+
+  <div id="room-options" style="display:none;">
+    <h3>اختر خيارًا</h3>
+    <button onclick="showCreateRoom()">إنشاء غرفة</button>
+    <button onclick="showJoinRoom()">الانضمام لغرفة</button>
+    <button onclick="goBackToLogin()">?? رجوع</button>
+  </div>
+
+  <div id="create-room" style="display:none;">
+    <h3>إنشاء غرفة جديدة</h3>
+    <input type="text" id="newRoomName" placeholder="اسم الغرفة">
+    <input type="password" id="newRoomPass" placeholder="كلمة السر">
+    <button onclick="createRoom()">دخول الغرفة</button>
+    <button onclick="backToOptions()">?? رجوع</button>
+  </div>
+
+  <div id="join-room" style="display:none;">
+    <h3>الانضمام لغرفة</h3>
+    <input type="text" id="joinRoomName" placeholder="اسم الغرفة">
+    <input type="password" id="joinRoomPass" placeholder="كلمة السر">
+    <button onclick="joinRoom()">دخول الغرفة</button>
+    <button onclick="backToOptions()">?? رجوع</button>
+  </div>
+
+  <div id="chat-room" style="display:none;">
+    <div id="roomHeader">
+      <h3 id="roomTitle"></h3>
+      <div id="activeUsers">?? الأعضاء النشطون: <span id="userList"></span></div>
+    </div>
+    <div id="chatBox"></div>
+    <div id="typingStatus"></div>
+    <input type="text" id="messageInput" placeholder="اكتب رسالة..." oninput="handleTyping()" onblur="stopTyping()">
+    <button onclick="sendMessage()">إرسال</button>
+    <button onclick="goBackToRoomOptions()">?? رجوع</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
